@@ -52,5 +52,5 @@ Les valeurs de ces derniers seront transmises comme paramètres de la méthode r
 ## Test d'une méthode contenant un appel à une méthode statique
 
 Ceci est un cas utile, sachant que si le test d'une méthode statique n'est pas en soit impossible, celui du résultat d'un tel appel n'est pas si simple.
-Pour surmonter la difficulté, j'utilise ici la librairie Mockery. Celle-ci crée des alias de la classe contenant les méthodes statiques pour les transformer en classe une Standard (\Std_class).
+Pour surmonter la difficulté, j'utilise ici la librairie Mockery. Celle-ci crée des alias de la classe contenant les méthodes statiques pour les transformer en une classe standard (\Std_class).
 Le test est fait sur la classe PaymentController, qui a été ajoutée dans ce seul but et n'est qu'une ébauche et un prétexte pour le test.
