@@ -17,13 +17,19 @@ class Product
         $this->type = $type;
         $this->price = $price;
     }
+
+    /**
+     * @throws \Exception
+     */
     public function computeTVA()
     {
+        if ($this->price < 0) throw new \Exception('Le prix ne peut être négatif');
+
         if (self::FOOD_PRODUCT == $this->type) {
 
             return $this->price * 0.055;
         }
 
-        return "{$this->name} n'est pas du type produit";
+        return $this->price * 0.196;
     }
 }

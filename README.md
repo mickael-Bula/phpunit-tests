@@ -35,3 +35,22 @@ $ php bin/phpunit --coverage-html public/test-coverage
 Le rapport est alors disponible sous `public/test-coverage` et consultable dans le navigateur à l'adresse http://localhost/phpunit/unit_test_project/public/test-coverage/
 Depuis cette page, il est ensuite possible de naviguer pour découvrir le taux de couverture des différentes classes et méthodes.
 
+## Lancer un test particulier
+
+Plutôt que de nacer la totalité des tests, il est possible d'en préciser un avec l'option --filter :
+
+```bash
+$ php bin/phpunit --filter=testcomputeTVAFoodProduct
+```
+
+## Utiliser un dataProvider
+
+Pour tester une même méthode avec des valeurs en entrée différentes, sans avoir à créer une méthode de test différente, on peut utiliser un dataProvider.
+Celui-ci doit être déclaré comme annotation de la méthode de test et défini dans une méthode propre qui retourne un tableau de tableaux.
+Les valeurs de ces derniers seront transmises comme paramètres de la méthode recevant le dataProvider.
+
+## Test d'une méthode contenant un appel à une méthode statique
+
+Ceci est un cas utile, sachant que si le test d'une méthode statique n'est pas en soit impossible, celui du résultat d'un tel appel n'est pas si simple.
+Pour surmonter la difficulté, j'utilise ici la librairie Mockery. Celle-ci crée des alias de la classe contenant les méthodes statiques pour les transformer en classe une Standard (\Std_class).
+Le test est fait sur la classe PaymentController, qui a été ajoutée dans ce seul but et n'est qu'une ébauche et un prétexte pour le test.
